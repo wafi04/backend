@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"github.com/google/uuid"
+	"github.com/lib/pq"
 	"github.com/wafi04/backend/internal/handler/dto/request"
 	"github.com/wafi04/backend/internal/handler/dto/response"
 	"github.com/wafi04/backend/internal/handler/dto/types"
@@ -105,4 +106,38 @@ func (pr *Database) DeleteProductImage(ctx context.Context, req *request.DeleteP
 	return &response.DeleteProductResponse{
 		Success: true,
 	}, nil
+}
+
+func (r *Database) enrichVariantsWithImages(ctx context.Context, variants []*types.ProductVariant, variantIDs []string) error {
+	const query = `
+        SELECT id, url, variant_id, is_main
+        FROM product_images
+        WHERE variant_id = ANY($1)
+        ORDER BY is_main DESC
+    `
+
+	rows, err := r.DB.QueryContext(ctx, query, pq.Array(variantIDs))
+	if err != nil {
+		r.log.Log(logger.ErrorLevel, "Failed to get images: %v", err)
+		return fmt.Errorf("failed to get product images")
+	}
+	defer rows.Close()
+
+	variantMap := createVariantMap(variants)
+
+	for rows.Next() {
+		var img types.ProductImage
+		var variantID string
+		if err := rows.Scan(&img.ID, &img.URL, &variantID, &img.IsMain); err != nil {
+			r.log.Log(logger.ErrorLevel, "Failed to scan image row: %v", err)
+			return fmt.Errorf("failed to scan image row")
+		}
+
+		if variant, exists := variantMap[variantID]; exists {
+			img.VariantID = variantID
+			variant.Images = append(variant.Images, &img)
+		}
+	}
+
+	return nil
 }

@@ -2,12 +2,14 @@ package productRepository
 
 import (
 	"context"
+	"fmt"
 	"log"
 
 	"github.com/google/uuid"
 	"github.com/wafi04/backend/internal/handler/dto/request"
 	"github.com/wafi04/backend/internal/handler/dto/response"
 	"github.com/wafi04/backend/internal/handler/dto/types"
+	"github.com/wafi04/backend/pkg/logger"
 )
 
 func (pr *Database) CreateProductVariant(ctx context.Context, req *request.CreateProductVariantRequest) (*types.ProductVariant, error) {
@@ -138,4 +140,36 @@ func (pr *Database) GetProductVariants(ctx context.Context, req *request.GetProd
 
 	return &response.GetProductVariantsResponse{
 		Variants: variants}, nil
+}
+
+func (r *Database) getProductVariants(ctx context.Context, productID string) ([]*types.ProductVariant, error) {
+	const query = `
+        SELECT id, color, sku
+        FROM product_variants
+        WHERE product_id = $1
+    `
+
+	rows, err := r.DB.QueryContext(ctx, query, productID)
+	if err != nil {
+		r.log.Log(logger.ErrorLevel, "Failed to get variants: %v", err)
+		return nil, fmt.Errorf("failed to get product variants")
+	}
+	defer rows.Close()
+
+	var variants []*types.ProductVariant
+	for rows.Next() {
+		var variant types.ProductVariant
+		err := rows.Scan(&variant.ID, &variant.Color, &variant.SKU)
+		if err != nil {
+			r.log.Log(logger.ErrorLevel, "Failed to scan variant row: %v", err)
+			return nil, fmt.Errorf("failed to scan variant row")
+		}
+
+		variant.ProductID = productID
+		variant.Images = make([]*types.ProductImage, 0)
+		variant.Inventory = make([]*types.Inventory, 0)
+		variants = append(variants, &variant)
+	}
+
+	return variants, nil
 }

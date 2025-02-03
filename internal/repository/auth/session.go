@@ -208,6 +208,9 @@ type ReqSession struct {
 }
 
 func (d *AuthRepository) GetCurrentSession(ctx context.Context, req *ReqSession) (*types.Session, error) {
+	d.logger.Log(logger.InfoLevel, "session id : %s ", req.SessionID)
+
+	var last_activity_at, expires_at, created_at time.Time
 	var sessions types.Session
 	query := `
 	SELECT session_id, 
@@ -232,34 +235,39 @@ func (d *AuthRepository) GetCurrentSession(ctx context.Context, req *ReqSession)
 		&sessions.IPAddress,
 		&sessions.DeviceInfo,
 		&sessions.IsActive,
-		&sessions.ExpiresAt,
-		&sessions.LastActivityAt,
-		&sessions.CreatedAt,
+		&expires_at,
+		&last_activity_at,
+		&created_at,
 	)
 
 	if err != nil {
+		d.logger.Log(logger.ErrorLevel, "session id not found :%s", err)
 		return nil, err
 	}
+
+	sessions.CreatedAt = created_at.Unix()
+	sessions.LastActivityAt = created_at.Unix()
+	sessions.ExpiresAt = expires_at.Unix()
 
 	return &sessions, nil
 }
 
-func (d *AuthRepository) UpdateSessionActivity(ctx context.Context, sessionID string) (bool, error) {
-	query := `
-        UPDATE sessions 
-        SET last_activity_at = CURRENT_TIMESTAMP 
-        WHERE session_id = $1
-    `
+// func (d *AuthRepository) UpdateSessionActivity(ctx context.Context, sessionID string) (bool, error) {
+// 	query := `
+//         UPDATE sessions
+//         SET last_activity_at = CURRENT_TIMESTAMP
+//         WHERE session_id = $1
+//     `
 
-	result, err := d.DB.ExecContext(ctx, query, sessionID)
-	if err != nil {
-		return false, fmt.Errorf("failed to update session activity: %w", err)
-	}
+// 	result, err := d.DB.ExecContext(ctx, query, sessionID)
+// 	if err != nil {
+// 		return false, fmt.Errorf("failed to update session activity: %w", err)
+// 	}
 
-	rows, err := result.RowsAffected()
-	if err != nil {
-		return false, err
-	}
+// 	rows, err := result.RowsAffected()
+// 	if err != nil {
+// 		return false, err
+// 	}
 
-	return rows > 0, nil
-}
+// 	return rows > 0, nil
+// }

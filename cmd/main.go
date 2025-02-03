@@ -6,13 +6,16 @@ import (
 	config "github.com/wafi04/backend/config/development"
 	authhandler "github.com/wafi04/backend/internal/handler/auth"
 	categoryhandler "github.com/wafi04/backend/internal/handler/category"
+	inventoryhandler "github.com/wafi04/backend/internal/handler/inventory"
 	producthandler "github.com/wafi04/backend/internal/handler/product"
 	authrepository "github.com/wafi04/backend/internal/repository/auth"
 	"github.com/wafi04/backend/internal/repository/category"
+	inventoryrepo "github.com/wafi04/backend/internal/repository/inventory"
 	productRepository "github.com/wafi04/backend/internal/repository/product"
 	authservice "github.com/wafi04/backend/internal/service/auth"
 	service "github.com/wafi04/backend/internal/service/category"
 	"github.com/wafi04/backend/internal/service/files"
+	inventoryService "github.com/wafi04/backend/internal/service/inventory"
 	productservice "github.com/wafi04/backend/internal/service/product"
 	"github.com/wafi04/backend/pkg/logger"
 
@@ -49,17 +52,20 @@ func main() {
 	userService := authservice.NewAuthService(userRepo)
 	categoryRepo := category.NewCategoryRepository(db.DB)
 	categoryService := service.NewCategoryService(categoryRepo)
-	productrepo := productRepository.NewCategoryRepository(db.DB)
+	productrepo := productRepository.NewProductRepository(db.DB)
 	productservice := productservice.NewProductService(productrepo)
+	inventoryrepo := inventoryrepo.NewInventoryRepository(db.DB)
+	inventoryService := inventoryService.NewInventoryService(inventoryrepo)
 
 	filesService := files.NewCloudinaryService(cld)
 	authHandler := authhandler.NewAuthHandler(userService)
 	categoryhandler := categoryhandler.NewCategoryHandler(categoryService, filesService)
 	producthandler := producthandler.NewProductHandler(productservice, filesService)
-	router := server.Allroutes(authHandler, categoryhandler, producthandler)
+	inventoryHandler := inventoryhandler.NewInventoryHandler(inventoryService)
+	router := server.Allroutes(authHandler, categoryhandler, producthandler, inventoryHandler)
 
 	log.Info("Starting server on : %s", config.LoadEnv("PORT"))
-	if err := router.Run(config.LoadEnv("PORT")); err != nil {
+	if err := router.Run(":8080"); err != nil {
 		log.Log(logger.ErrorLevel, "Failed to start server: %s", err)
 	}
 }

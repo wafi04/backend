@@ -5,6 +5,7 @@ import (
 
 	"github.com/wafi04/backend/internal/handler/dto/request"
 	"github.com/wafi04/backend/internal/handler/dto/response"
+	"github.com/wafi04/backend/internal/handler/dto/types"
 	authrepository "github.com/wafi04/backend/internal/repository/auth"
 	"github.com/wafi04/backend/pkg/logger"
 	"golang.org/x/crypto/bcrypt"
@@ -64,6 +65,6 @@ func (s *AuthService) RefreshToken(ctx context.Context, req *request.RefreshToke
 func (s *AuthService) ListSessions(ctx context.Context, req *request.ListSessionRequest) (*response.ListSessionResponse, error) {
 	return s.AuthRepository.ListSessions(ctx, req)
 }
-func (s *AuthService) GetCurrentSession(ctx context.Context, ) (*response.ListSessionResponse, error) {
+func (s *AuthService) GetCurrentSession(ctx context.Context, req *authrepository.ReqSession) (*types.Session, error) {
 	return s.AuthRepository.GetCurrentSession(ctx, req)
 }

@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Nike Dunk Low Retro",
+    "sub_title": "Men Shoes",
+    "description": "Created for the hardwood but taken to the streets, the Nike Dunk Low Retro returns with crisp overlays and original team colours. This basketball icon channels '80s vibes with premium leather in the upper that looks good and breaks in even better. Modern footwear technology helps bring the comfort into the 21st century.",
+    "category": "75b56f25-2f22-4f3e-978f-d3e436644c9d",
+    "price": 1549000
+  },
+  {
+    "name": "Nike Air Force 1 '07",
+    "description": "Created for the hardwood but taken to the streets, the Nike Dunk Low Retro returns with crisp overlays and original team colours. This basketball icon channels '80s vibes with premium leather in the upper that looks good and breaks in even better. Modern footwear technology helps bring the comfort into the 21st century.",
+    "category": "75b56f25-2f22-4f3e-978f-d3e436644c9d",
+    "sub_title": "Men Shoes",
+    "price": 1549000
+  },
+  {
+    "name": "Nike Court Vision Low",
+    "description": "Created for the hardwood but taken to the streets, the Nike Dunk Low Retro returns with crisp overlays and original team colours. This basketball icon channels '80s vibes with premium leather in the upper that looks good and breaks in even better. Modern footwear technology helps bring the comfort into the 21st century.",
+    "category": "75b56f25-2f22-4f3e-978f-d3e436644c9d",
+    "sub_title": "Men Shoes",
+    "price": 1069000
+  },
+  {
+    "name": "Air Jordan 1 Low",
+    "description": "Created for the hardwood but taken to the streets, the Nike Dunk Low Retro returns with crisp overlays and original team colours. This basketball icon channels '80s vibes with premium leather in the upper that looks good and breaks in even better. Modern footwear technology helps bring the comfort into the 21st century.",
+    "category": "75b56f25-2f22-4f3e-978f-d3e436644c9d",
+    "sub_title": "Men Shoes",
+    "price": 1729000
+  },
+  {
+    "name": "Air Jordan 1 Low OG 'Wolf Grey'",
+    "description": "Created for the hardwood but taken to the streets, the Nike Dunk Low Retro returns with crisp overlays and original team colours. This basketball icon channels '80s vibes with premium leather in the upper that looks good and breaks in even better. Modern footwear technology helps bring the comfort into the 21st century.",
+    "category": "75b56f25-2f22-4f3e-978f-d3e436644c9d",
+    "sub_title": "Men Shoes",
+    "price": 2199000
+  },
+  {
+    "name": "Nike Pegasus 41",
+    "description": "Women's Road Running Shoes",
+    "category": "16d3c3a9-7a74-4897-b4f1-f79df5b0abd4",
+    "sub_title": "Women Shoes",
+    "price": 2099000
+  },
+  {
+    "name": "Nike Downshifter 13",
+    "category": "16d3c3a9-7a74-4897-b4f1-f79df5b0abd4",
+    "description": "Women's Road Running Shoes",
+    "sub_title": "Women Shoes",
+    "price": 899000
+  },
+  {
+    "name": "Nike Revolution 7",
+    "price": 809000,
+    "description": "Women's Road Running Shoes",
+    "sub_title": "Women Shoes",
+    "category": "16d3c3a9-7a74-4897-b4f1-f79df5b0abd4"
+  }
+]

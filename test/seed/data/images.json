@@ -1,0 +1,321 @@
+[
+    {"url" :"https://static.nike.com/a/images/t_default/0f76f73e-2578-4d62-abab-c5563ea4f78c/NIKE+DUNK+LOW+RETRO.png"},
+    {"url" :"https://static.nike.com/a/images/t_default/8a084133-cb4f-41c3-ac3d-50b73b80710a/NIKE+DUNK+LOW+RETRO.png"},
+    {"url" :"https://static.nike.com/a/images/t_default/a5b4fc20-388b-4f28-aa78-dba280843e57/NIKE+DUNK+LOW+RETRO.png"},
+    {"url" :"https://static.nike.com/a/images/t_default/810eecdd-4534-4846-85c5-b977d9284d0e/NIKE+DUNK+LOW+RETRO.png"},
+    {"url" :"https://static.nike.com/a/images/t_default/1f80a921-c961-474d-a052-20a449eaa79a/NIKE+DUNK+LOW+RETRO.png"},
+    {"url" :"https://static.nike.com/a/images/t_default/8636ce95-74a9-40b5-b83a-2d095d8faac2/NIKE+DUNK+LOW+RETRO.png"},
+    {"url" :"https://static.nike.com/a/images/t_default/4d806d19-2e29-4c17-8336-8924eb9be2da/NIKE+DUNK+LOW+RETRO.png"},
+    {"url" :"https://static.nike.com/a/images/t_default/535f7575-1727-4f04-af01-1bbe11ed770c/NIKE+DUNK+LOW+RETRO.png"},
+    {"url" :"https://static.nike.com/a/images/t_default/337f25ae-896c-44cd-9ff4-0f890595d56f/NIKE+DUNK+LOW+RETRO.png"},
+    {"url" :"https://static.nike.com/a/images/t_default/6e04d5c1-6dc9-4a4d-8a31-80de89a68a2f/NIKE+DUNK+LOW+RETRO.png"},
+       
+
+  {
+    "name": "Nike Air Force 1 '07",
+    "description": "Created for the hardwood but taken to the streets, the Nike Dunk Low Retro returns with crisp overlays and original team colours. This basketball icon channels '80s vibes with premium leather in the upper that looks good and breaks in even better. Modern footwear technology helps bring the comfort into the 21st century.",
+    "category": "f6dfbc24-3635-4f54-9914-49d5bb01c046",
+    "image": "https://static.nike.com/a/images/t_default/4f37fca8-6bce-43e7-ad07-f57ae3c13142/AIR+FORCE+1+%2707.{png",
+    "specification": [
+      "The stitched overlays on the upper add heritage style, durability and support.",
+      "Originally designed for performance hoops, the Nike Air cushioning adds lightweight, all-day comfort.",
+      "The low-cut silhouette adds a clean, streamlined look.",
+      "The padded collar feels soft and comfortable."
+    ],
+    "variants": [
+      {
+        "color": "White",
+        "type_color": "White/White",
+        "price": 1549000,
+        "status": "PUBLISHED",
+        "image": [
+          "https://static.nike.com/a/images/t_default/4f37fca8-6bce-43e7-ad07-f57ae3c13142/AIR+FORCE+1+%2707.png",
+          "https://static.nike.com/a/images/t_default/c9e622c0-f478-4ffb-8def-fc11280e45bf/AIR+FORCE+1+%2707.png",
+          "https://static.nike.com/a/images/t_default/1ca41965-1f17-4133-9844-f6347262a727/AIR+FORCE+1+%2707.png",
+          "https://static.nike.com/a/images/t_default/15bcd4d6-2636-4e9d-8b90-47d556a2cc0a/AIR+FORCE+1+%2707.png",
+          "https://static.nike.com/a/images/t_default/1241c085-a703-49dd-8a84-5694d5fd8feb/AIR+FORCE+1+%2707.png",
+          "https://static.nike.com/a/images/t_default/894df3e6-1f5b-4a0a-8d9d-dc5112833d0c/AIR+FORCE+1+%2707.png",
+          "https://static.nike.com/a/images/t_default/120cea43-932a-4743-a537-052f9c664956/AIR+FORCE+1+%2707.png",
+          "https://static.nike.com/a/images/t_default/b4fff5a0-0204-4437-9181-c56817812daa/AIR+FORCE+1+%2707.png",
+          "https://static.nike.com/a/images/t_default/aa33f175-561c-4635-bea2-b516b18a70b8/AIR+FORCE+1+%2707.png",
+          "https://static.nike.com/a/images/t_default/9bf152de-bad7-4ee9-aab7-245d89c5d86c/AIR+FORCE+1+%2707.png"
+        ],
+        "inventory": [
+          {
+            "size": "40",
+            "quantity": 7
+          },
+          {
+            "size": "41",
+            "quantity": 1
+          },
+          {
+            "size": "42",
+            "quantity": 5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Nike Court Vision Low",
+    "description": "Created for the hardwood but taken to the streets, the Nike Dunk Low Retro returns with crisp overlays and original team colours. This basketball icon channels '80s vibes with premium leather in the upper that looks good and breaks in even better. Modern footwear technology helps bring the comfort into the 21st century.",
+    "category": "f6dfbc24-3635-4f54-9914-49d5bb01c046",
+    "image": "https://static.nike.com/a/images/t_default/eaf524f7-a9f7-4f70-a438-1b0480eb2540/NIKE+COURT+VISION+LO.png",
+
+    "specification": [
+      "Real leather and synthetic materials come together for a design that echoes mid-1980s basketball shoes.",
+      "Perforations on the toe and the sides add breathability.",
+      "Rubber outsole gives you durable traction."
+    ],
+    "variants": [
+      {
+        "color": "Sail",
+        "type_color": "Sail/Light Orewood Brown/White/Black",
+        "status": "PUBLISHED",
+        "price": 1069000,
+        "image": [
+          "https://static.nike.com/a/images/t_default/eaf524f7-a9f7-4f70-a438-1b0480eb2540/NIKE+COURT+VISION+LO.png",
+          "https://static.nike.com/a/images/t_default/be9d72f4-b6e6-42c4-808e-81027f692c27/NIKE+COURT+VISION+LO.png",
+          "https://static.nike.com/a/images/t_default/063a89ca-9594-464f-94aa-54d7daea5e2c/NIKE+COURT+VISION+LO.png",
+          "https://static.nike.com/a/images/t_default/3e7b7fcc-8691-4441-9fae-6afa72fe9ed6/NIKE+COURT+VISION+LO.png",
+          "https://static.nike.com/a/images/t_default/6c65f91c-63a7-4bee-96f1-95cd3b37f344/NIKE+COURT+VISION+LO.png",
+          "https://static.nike.com/a/images/t_default/c9d7a2f6-dde3-4b73-9294-a450f6910631/NIKE+COURT+VISION+LO.png",
+          "https://static.nike.com/a/images/t_default/078d23ea-b7b3-471e-bf0c-8244d73c5c74/NIKE+COURT+VISION+LO.png",
+          "https://static.nike.com/a/images/t_default/c276378b-85e2-45c7-90f2-36eea92eade2/NIKE+COURT+VISION+LO.png"
+        ],
+        "inventory": [
+          {
+            "size": "43",
+            "quantity": 10
+          },
+          {
+            "size": "44",
+            "quantity": 5
+          },
+          {
+            "size": "45",
+            "quantity": 8
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Air Jordan 1 Low",
+    "description": "Created for the hardwood but taken to the streets, the Nike Dunk Low Retro returns with crisp overlays and original team colours. This basketball icon channels '80s vibes with premium leather in the upper that looks good and breaks in even better. Modern footwear technology helps bring the comfort into the 21st century.",
+    "category": "89becaab-76bf-4437-91af-8b2555499742",
+    "image": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/5c729d24-be25-43c5-af82-af1595f385a7/AIR+JORDAN+1+LOW.png",
+
+    "specification": [
+      "Real leather and synthetic materials come together for a design that echoes mid-1980s basketball shoes.",
+      "Perforations on the toe and the sides add breathability.",
+      "Rubber outsole gives you durable traction.",
+      "Encapsulated Air-Sole unit provides lightweight cushioning.",
+      "Genuine leather in the upper offers durability and a premium look.",
+      "Solid rubber outsole enhances traction on a variety of surfaces."
+    ],
+    "variants": [
+      {
+        "color": "Black",
+        "type_color": "Black/Game Royal/Metallic Platinum/White",
+        "price": 1729000,
+        "status": "PUBLISHED",
+        "image": [
+          "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/5c729d24-be25-43c5-af82-af1595f385a7/AIR+JORDAN+1+LOW.png",
+          "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/8ff37b55-9b6d-41af-a093-62f11dc48ac1/AIR+JORDAN+1+LOW.png",
+          "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/532a4f35-1dbe-42b8-a130-f7f4082cffb7/AIR+JORDAN+1+LOW.png",
+          "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/652c5872-c445-4cbf-bbc3-933ed5ce36c3/AIR+JORDAN+1+LOW.png",
+          "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/8eaf2d0d-4255-4ab4-be31-866d1d65646c/AIR+JORDAN+1+LOW.png",
+          "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/01083173-365a-4c7f-8684-67cf5f964c76/AIR+JORDAN+1+LOW.png",
+          "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/b7a1189c-1718-4f29-9e66-a255a2891022/AIR+JORDAN+1+LOW.png",
+          "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/5f5f5c44-8ee0-459b-a6ac-73402fd15d66/AIR+JORDAN+1+LOW.png"
+        ],
+        "inventory": [
+          {
+            "size": "40",
+            "quantity": 3
+          },
+          {
+            "size": "41",
+            "quantity": 7
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Air Jordan 1 Low OG 'Wolf Grey'",
+    "description": "Created for the hardwood but taken to the streets, the Nike Dunk Low Retro returns with crisp overlays and original team colours. This basketball icon channels '80s vibes with premium leather in the upper that looks good and breaks in even better. Modern footwear technology helps bring the comfort into the 21st century.",
+    "category": "89becaab-76bf-4437-91af-8b2555499742",
+    "image": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/3157d472-63ce-457d-9723-b087da2666f5/AIR+JORDAN+1+RETRO+LOW+OG.png",
+
+    "specification": [
+      "Encapsulated Air unit provides lightweight cushioning.",
+      "Leather and textile materials in the upper are light and durable.",
+      "Wings logo on heel.",
+      "Perforated toe.",
+      "Foam midsole.",
+      "Rubber traction."
+    ],
+    "variants": [
+      {
+        "color": "White",
+        "type_color": "White/Wolf Grey/Black",
+        "price": 2199000,
+        "status": "PUBLISHED",
+        "image": [
+          "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/3157d472-63ce-457d-9723-b087da2666f5/AIR+JORDAN+1+RETRO+LOW+OG.png",
+          "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/3d98a979-e8da-4e3c-9d31-6b9ef67d5334/AIR+JORDAN+1+RETRO+LOW+OG.png",
+          "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/3f8a2fae-8135-4f0e-9649-a759deee3476/AIR+JORDAN+1+RETRO+LOW+OG.png",
+          "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/ae60c000-2b35-4cfd-ae2f-f59d735fd4c1/AIR+JORDAN+1+RETRO+LOW+OG.png",
+          "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/593b67cf-e669-4511-9745-a6bb3b8d51a7/AIR+JORDAN+1+RETRO+LOW+OG.png",
+          "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/7fb6909f-66b6-4f77-b923-2fbe689ab3ba/AIR+JORDAN+1+RETRO+LOW+OG.png",
+          "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/db2f2ea7-26d7-43ed-b6ef-9bcad6792591/AIR+JORDAN+1+RETRO+LOW+OG.png",
+          "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/3c0594dc-eb70-4a6b-91d9-fe3d2a4bccb1/AIR+JORDAN+1+RETRO+LOW+OG.png"
+        ],
+        "inventory": [
+          {
+            "size": "40",
+            "quantity": 3
+          },
+          {
+            "size": "41",
+            "quantity": 7
+          },
+          {
+            "size": "42",
+            "quantity": 9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Nike Pegasus 41",
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/afb69fd0-fb0f-4f8c-a30f-5fdfae4f03b1/W+AIR+ZOOM+PEGASUS+41.png",
+    "description": "Women's Road Running Shoes",
+    "category": "91133167-c4b2-432a-ae2d-54a50a75e5b0",
+    "specification": [
+      "Upgraded breathable engineered mesh upper",
+      "ReactX foam midsole surrounds forefoot and heel Air Zoom units for an energised ride.",
+      "Signature waffle-inspired rubber outsole for traction and flexibility",
+      "A plush collar, tongue and sockliner for a secure and comfortable fit",
+      "What's new? All-new ReactX foam midsole is 13% more responsive than previous React technology.",
+      "Crafted for performance and planet, ReactX foam is engineered to reduce its carbon footprint by at least 43% in a pair of midsoles due to reduced manufacturing process energy compared with prior React foam. The carbon footprint of ReactX is based on cradle-to-gate assessment reviewed by PRé Sustainability B.V. and Intertek China. Other midsole components such as airbags, plates or other foam formulations were not considered."
+    ],
+    "variants": [
+      {
+        "color": "White",
+        "status": "PUBLISHED",
+        "type_color": "White/Black/Beyond Pink/Hyper Violet",
+        "price": 2099000,
+        "image": [
+          "https://static.nike.com/a/images/t_default/afb69fd0-fb0f-4f8c-a30f-5fdfae4f03b1/W+AIR+ZOOM+PEGASUS+41.png",
+          "https://static.nike.com/a/images/t_default/f3a09b55-d98e-4e67-972c-ae2e12c545c9/W+AIR+ZOOM+PEGASUS+41.png",
+          "https://static.nike.com/a/images/t_default/20c29b90-861d-424e-a8e4-0e19495134ca/W+AIR+ZOOM+PEGASUS+41.png",
+          "https://static.nike.com/a/images/t_default/54a2bacb-908b-43a2-a32b-a2edb69a9728/W+AIR+ZOOM+PEGASUS+41.png",
+          "https://static.nike.com/a/images/t_default/18f8dd7b-0375-4a3c-9cdf-58060ebb21a3/W+AIR+ZOOM+PEGASUS+41.png",
+          "https://static.nike.com/a/images/t_default/bd149186-0b20-4b2d-8fe7-8dbd412c3eaa/W+AIR+ZOOM+PEGASUS+41.png",
+          "https://static.nike.com/a/images/t_default/08f25443-b4a6-4979-b7ef-fee90c6107ee/W+AIR+ZOOM+PEGASUS+41.png",
+          "https://static.nike.com/a/images/t_default/580c7cd3-5c56-4072-8d80-e07eacea6dcc/W+AIR+ZOOM+PEGASUS+41.png",
+          "https://static.nike.com/a/images/t_default/8e080c43-3021-4a77-8c3e-b9fa73ef01f1/W+AIR+ZOOM+PEGASUS+41.png",
+          "https://static.nike.com/a/images/t_default/231144e5-36fa-46a7-a84a-8b93debdadc8/W+AIR+ZOOM+PEGASUS+41.png",
+          "https://static.nike.com/a/images/t_default/3462677b-209c-4f74-b887-7f4c34f02a52/W+AIR+ZOOM+PEGASUS+41.png",
+          "https://static.nike.com/a/images/t_default/c8ec6bd7-acb0-4ce4-b1f8-9e7d6a1262bd/W+AIR+ZOOM+PEGASUS+41.png"
+        ],
+        "inventory": [
+          {
+            "size": "40",
+            "quantity": 7
+          },
+          {
+            "size": "41",
+            "quantity": 1
+          },
+          {
+            "size": "42",
+            "quantity": 5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Nike Downshifter 13",
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/ddac904b-3a82-4e88-8a29-996bc56ab2c0/W+NIKE+DOWNSHIFTER+13.png",
+    "category": "91133167-c4b2-432a-ae2d-54a50a75e5b0",
+    "description": "Women's Road Running Shoes",
+    "specification": [
+      "Full-length Zoom Air unit in the heel for a responsive ride",
+      "Phylon midsole for lightweight cushioning",
+      "Rubber outsole for traction and durability",
+      "Breathable mesh upper for a comfortable fit",
+      "Weight: 7.9 oz.",
+      "Heel-to-toe offset: 10mm",
+      "Width: Medium",
+      "Color: White/Black"
+    ],
+    "variants": [
+      {
+        "color": "Blue",
+        "status": "PUBLISHED",
+        "type_color": "Light Armoury Blue/White",
+        "price": 899000,
+        "image": [
+          "https://static.nike.com/a/images/t_default/ddac904b-3a82-4e88-8a29-996bc56ab2c0/W+NIKE+DOWNSHIFTER+13.png",
+          "https://static.nike.com/a/images/t_default/b0d28bdc-9b26-4a97-9de9-75d64daaa5f7/W+NIKE+DOWNSHIFTER+13.png",
+          "https://static.nike.com/a/images/t_default/cce08bf1-dcd5-43c3-a899-87873afac4a6/W+NIKE+DOWNSHIFTER+13.png",
+          "https://static.nike.com/a/images/t_default/105a9386-8185-44b9-ad16-8b67a098cf51/W+NIKE+DOWNSHIFTER+13.png",
+          "https://static.nike.com/a/images/t_default/1369c5f6-b4fe-4b7f-ac21-99a0626bcadb/W+NIKE+DOWNSHIFTER+13.png",
+          "https://static.nike.com/a/images/t_default/155ab483-1926-42de-aee3-80a5f85371f9/W+NIKE+DOWNSHIFTER+13.png",
+          "https://static.nike.com/a/images/t_default/244dad3b-c82b-4a21-8d35-f15f08da61f6/W+NIKE+DOWNSHIFTER+13.png",
+          "https://static.nike.com/a/images/t_default/74477201-89ca-4ac0-a2ea-1b7064f61a4f/W+NIKE+DOWNSHIFTER+13.png",
+          "https://static.nike.com/a/images/t_default/d127d928-1a49-49ec-a159-95e99f75413a/W+NIKE+DOWNSHIFTER+13.png"
+        ],
+        "inventory": [
+          {
+            "size": "39",
+            "quantity": 7
+          },
+          {
+            "size": "40",
+            "quantity": 1
+          },
+          {
+            "size": "41",
+            "quantity": 5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Nike Revolution 7",
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/34dc1f16-c254-4022-8813-2953827643a1/W+NIKE+REVOLUTION+7.png",
+    "description": "Women's Road Running Shoes",
+    "category": "91133167-c4b2-432a-ae2d-54a50a75e5b0",
+    "specification": [
+      "Foamy ride: A foam midsole delivers a soft, smooth ride. There's a little more room in the forefoot compared to the 6 as well, so your toes don't feel tight or pinched.",
+      "Soft Touch: We added puffs to the heel that are visible on the outside of the shoe. They're soft to the touch and help add comfort to your Achilles. Touch points on the tongue create a natural feel as you take off.",
+      "Reassuring grip: The outsole sports a generative traction pattern that combines with rubber lugs to help give you grip when going uphill or downhill."
+    ],
+    "variants": [
+      {[
+    
+          "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/34dc1f16-c254-4022-8813-2953827643a1/W+NIKE+REVOLUTION+7.png",
+          "https://static.nike.com/a/images/t_default/34dc1f16-c254-4022-8813-2953827643a1/W+NIKE+REVOLUTION+7.png",
+          "https://static.nike.com/a/images/t_default/f35822e9-d199-4ca6-96c9-4c88b6ff1443/W+NIKE+REVOLUTION+7.png",
+          "https://static.nike.com/a/images/t_default/60c18f19-1324-4bdb-a6b4-fc3afe7efd0b/W+NIKE+REVOLUTION+7.png",
+          "https://static.nike.com/a/images/t_default/cd797719-ff30-4eda-a97f-ac76eb2ee646/W+NIKE+REVOLUTION+7.png",
+          "https://static.nike.com/a/images/t_default/5d4d4520-f897-4e97-9d69-25732d927c23/W+NIKE+REVOLUTION+7.png",
+          "https://static.nike.com/a/images/t_default/295d9957-2b74-4fa7-af3d-9e366a82461c/W+NIKE+REVOLUTION+7.png",
+          "https://static.nike.com/a/images/t_default/5b6a828d-6a3b-488b-bf5b-d2f11bb7ebbc/W+NIKE+REVOLUTION+7.png",
+          "https://static.nike.com/a/images/t_default/28d20a58-53b4-46e6-859a-4ef7e7e23d16/W+NIKE+REVOLUTION+7.png",
+          "https://static.nike.com/a/images/t_default/c1512ee0-3c91-43a3-a834-3b5ccde08ddd/W+NIKE+REVOLUTION+7.png",
+        ]
+       
+      }
+    ]
+  }
+]

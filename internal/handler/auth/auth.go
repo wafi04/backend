@@ -163,24 +163,35 @@ func (s *AuthHandler) GetUser(c *gin.Context) {
 		return
 	}
 
-	// Update last activity
-	_, err = s.AuthService.AuthRepository.UpdateSessionActivity(c.Request.Context(), session.SessionID)
-	if err != nil {
-		// Log error tapi tidak perlu return error ke client
-		log.Printf("Failed to update session activity: %v", err)
-	}
+	// _, err = s.AuthService.AuthRepository.UpdateSessionActivity(c.Request.Context(), session.SessionID)
+	// if err != nil {
+	// 	log.Printf("Failed to update session activity: %v", err)
+	// }
 
 	httpresponse.SendSuccessResponse(c, http.StatusOK, "User retrieved successfully", userResp)
 }
 
 func (s *AuthHandler) Logout(c *gin.Context) {
-	var req request.LogoutRequest
-	if err := c.ShouldBindJSON(&req); err != nil {
+	var req struct {
+		AccessToken string `json:"access_token"`
+	}
+
+	sessionID, err := c.Cookie("session")
+	if err != nil {
+		httpresponse.SendErrorResponse(c, http.StatusUnauthorized, "No session found")
+		return
+	}
+	if err = c.ShouldBindJSON(&req); err != nil {
 		httpresponse.SendErrorResponse(c, http.StatusBadRequest, "Invalid request")
 		return
 	}
 
-	resp, err := s.AuthService.Logout(c.Request.Context(), &req)
+	middleware.ClearTokens(c)
+
+	resp, err := s.AuthService.Logout(c.Request.Context(), &request.LogoutRequest{
+		AccessToken: req.AccessToken,
+		SessionID:   sessionID,
+	})
 	if err != nil {
 		httpresponse.SendErrorResponse(c, http.StatusInternalServerError, "Logout failed")
 		return

@@ -1,20 +1,33 @@
 package server
 
 import (
+	"log"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
+	"github.com/gorilla/websocket"
 	config "github.com/wafi04/backend/config/development"
 	authhandler "github.com/wafi04/backend/internal/handler/auth"
 	categoryhandler "github.com/wafi04/backend/internal/handler/category"
+	inventoryhandler "github.com/wafi04/backend/internal/handler/inventory"
 	producthandler "github.com/wafi04/backend/internal/handler/product"
 	"github.com/wafi04/backend/pkg/middleware"
 	httpresponse "github.com/wafi04/backend/pkg/response"
 	"github.com/wafi04/backend/pkg/utils"
 )
 
+var upgrader = websocket.Upgrader{
+	CheckOrigin: func(r *http.Request) bool {
+		// Allow all connections (you can customize this for security)
+		return true
+	},
+}
+
 func Allroutes(
 	authHandler *authhandler.AuthHandler,
 	categoryHandler *categoryhandler.CategoryHandler,
 	producthandler *producthandler.ProductHandler,
+	inventoryhandler *inventoryhandler.InventoryHandler,
 ) *gin.Engine {
 	gin.SetMode(gin.DebugMode)
 
@@ -35,6 +48,29 @@ func Allroutes(
 
 		}
 	}
+	r.GET("/ws", func(c *gin.Context) {
+		conn, err := upgrader.Upgrade(c.Writer, c.Request, nil)
+		if err != nil {
+			log.Println("WebSocket upgrade error:", err)
+			return
+		}
+		defer conn.Close()
+
+		for {
+			messageType, message, err := conn.ReadMessage()
+			if err != nil {
+				log.Println("Read error:", err)
+				break
+			}
+
+			log.Printf("Received: %s", message)
+
+			if err := conn.WriteMessage(messageType, message); err != nil {
+				log.Println("Write error:", err)
+				break
+			}
+		}
+	})
 	// Protected routes
 	protected := r.Group("/api/v1")
 	protected.Use(middleware.AuthMiddleware())
@@ -74,6 +110,10 @@ func Allroutes(
 			// images
 			product.POST("/:id/variant/images", producthandler.HandleAddProductImage)
 			product.DELETE("/:id/variant/images", producthandler.HandleDeleteProductImage)
+		}
+		inv := protected.Group("/stock")
+		{
+			inv.GET("/:id", inventoryhandler.HandleGetInvetory)
 		}
 	}
 

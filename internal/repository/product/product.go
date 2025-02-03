@@ -9,6 +9,7 @@ import (
 	"time"
 
 	"github.com/jmoiron/sqlx"
+	"github.com/lib/pq"
 	"github.com/wafi04/backend/internal/handler/dto/request"
 	"github.com/wafi04/backend/internal/handler/dto/response"
 	"github.com/wafi04/backend/internal/handler/dto/types"
@@ -20,7 +21,7 @@ type Database struct {
 	log logger.Logger
 }
 
-func NewCategoryRepository(db *sqlx.DB) ProductRepository {
+func NewProductRepository(db *sqlx.DB) ProductRepository {
 	return &Database{DB: db}
 }
 
@@ -69,126 +70,129 @@ func (s *Database) CreateProduct(ctx context.Context, req *types.Product) (*type
 
 	return &product, nil
 }
+func (r *Database) GetProduct(ctx context.Context, req *request.GetProductRequest) (*types.Product, error) {
+	product, err := r.getProductBase(ctx, req.ID)
+	if err != nil {
+		return nil, err
+	}
 
-func (s *Database) GetProduct(ctx context.Context, req *request.GetProductRequest) (*types.Product, error) {
-	productQuery := `
-		SELECT 
-			id,
-			name,
-			sub_title,
-			description,
-			price,
-			sku,
-			category_id,
-			created_at,
-			updated_at
-		FROM products
-		WHERE id = $1
-	`
+	variants, err := r.getProductVariants(ctx, req.ID)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(variants) > 0 {
+		variantIDs := extractVariantIDs(variants)
+		if err := r.enrichVariantsWithImages(ctx, variants, variantIDs); err != nil {
+			return nil, err
+		}
+		if err := r.EnrichVariantsWithInventory(ctx, variants, variantIDs); err != nil {
+			return nil, err
+		}
+	}
+
+	product.Variants = variants
+	return product, nil
+}
+
+func (r *Database) getProductBase(ctx context.Context, productID string) (*types.Product, error) {
+	const query = `
+        SELECT 
+            id, name, sub_title, description, 
+            price, sku, category_id, 
+            created_at, updated_at
+        FROM products
+        WHERE id = $1
+    `
 
 	product := &types.Product{}
 	var subTitle sql.NullString
 	var createdAt, updatedAt time.Time
 
-	err := s.DB.QueryRowContext(ctx, productQuery, req.ID).Scan(
-		&product.ID,
-		&product.Name,
-		&subTitle,
-		&product.Description,
-		&product.Price,
-		&product.SKU,
-		&product.CategoryID,
-		&createdAt,
-		&updatedAt,
+	err := r.DB.QueryRowContext(ctx, query, productID).Scan(
+		&product.ID, &product.Name, &subTitle, &product.Description,
+		&product.Price, &product.SKU, &product.CategoryID,
+		&createdAt, &updatedAt,
 	)
 
 	if err != nil {
 		if err == sql.ErrNoRows {
-			s.log.Log(logger.ErrorLevel, "Product not found: %v", err)
+			r.log.Log(logger.ErrorLevel, "Product not found: %v", err)
 			return nil, fmt.Errorf("product not found")
 		}
-		s.log.Log(logger.ErrorLevel, "Failed to get product: %v", err)
+		r.log.Log(logger.ErrorLevel, "Failed to get product: %v", err)
 		return nil, fmt.Errorf("failed to get product")
 	}
 
 	if subTitle.Valid {
 		product.SubTitle = subTitle.String
 	}
-
 	product.CreatedAt = createdAt.Unix()
 	product.UpdatedAt = updatedAt.Unix()
 
-	variantsQuery := `
-		SELECT 
-			v.id,
-			v.color,
-			v.sku,
-			img.id,
-			img.url,
-			img.is_main
-		FROM product_variants v
-		LEFT JOIN product_images img ON v.id = img.variant_id
-		WHERE v.product_id = $1
-		ORDER BY v.id, img.is_main DESC
-	`
+	return product, nil
+}
 
-	rows, err := s.DB.QueryContext(ctx, variantsQuery, req.ID)
+func (r *Database) EnrichVariantsWithInventory(ctx context.Context, variants []*types.ProductVariant, variantIDs []string) error {
+	const query = `
+        SELECT 
+            id, variant_id, size, stock,
+            reserved_stock, available_stock,
+            created_at, updated_at
+        FROM inventory
+        WHERE variant_id = ANY($1)
+        ORDER BY size
+    `
+
+	rows, err := r.DB.QueryContext(ctx, query, pq.Array(variantIDs))
 	if err != nil {
-		s.log.Log(logger.ErrorLevel, "Failed to get variants: %v", err)
-		return nil, fmt.Errorf("failed to get product variants")
+		r.log.Log(logger.ErrorLevel, "Failed to get inventory: %v", err)
+		return fmt.Errorf("failed to get inventory")
 	}
 	defer rows.Close()
 
-	variantMap := make(map[string]*types.ProductVariant)
+	variantMap := createVariantMap(variants)
 
 	for rows.Next() {
-		var variantId, variantColor, variantSku string
-		var imageId, imageUrl sql.NullString
-		var isMain sql.NullBool
+		var inv types.Inventory
+		var variantID string
+		var createdAt, updatedAt time.Time
 
-		err := rows.Scan(
-			&variantId,
-			&variantColor,
-			&variantSku,
-			&imageId,
-			&imageUrl,
-			&isMain,
-		)
-
-		if err != nil {
-			s.log.Log(logger.ErrorLevel, "Failed to scan variant row: %v", err)
-			return nil, fmt.Errorf("failed to scan variant row")
+		if err := rows.Scan(
+			&inv.ID, &variantID, &inv.Size, &inv.Stock,
+			&inv.ReservedStock, &inv.AvailableStock,
+			&createdAt, &updatedAt,
+		); err != nil {
+			r.log.Log(logger.ErrorLevel, "Failed to scan inventory row: %v", err)
+			return fmt.Errorf("failed to scan inventory row")
 		}
 
-		variant, exists := variantMap[variantId]
-		if !exists {
-			variant = &types.ProductVariant{
-				ID:        variantId,
-				Color:     variantColor,
-				SKU:       variantSku,
-				ProductID: req.ID,
-				Images:    make([]*types.ProductImage, 0),
-			}
-			variantMap[variantId] = variant
-		}
-
-		if imageId.Valid {
-			image := &types.ProductImage{
-				ID:        imageId.String,
-				URL:       imageUrl.String,
-				VariantID: variant.ID,
-				IsMain:    isMain.Bool,
-			}
-			variant.Images = append(variant.Images, image)
+		if variant, exists := variantMap[variantID]; exists {
+			inv.VariantID = variantID
+			inv.CreatedAt = createdAt.Unix()
+			inv.UpdatedAt = updatedAt.Unix()
+			variant.Inventory = append(variant.Inventory, &inv)
 		}
 	}
 
-	product.Variants = make([]*types.ProductVariant, 0, len(variantMap))
-	for _, variant := range variantMap {
-		product.Variants = append(product.Variants, variant)
-	}
+	return nil
+}
 
-	return product, nil
+// Helper functions
+func extractVariantIDs(variants []*types.ProductVariant) []string {
+	ids := make([]string, len(variants))
+	for i, v := range variants {
+		ids[i] = v.ID
+	}
+	return ids
+}
+
+func createVariantMap(variants []*types.ProductVariant) map[string]*types.ProductVariant {
+	variantMap := make(map[string]*types.ProductVariant)
+	for _, v := range variants {
+		variantMap[v.ID] = v
+	}
+	return variantMap
 }
 
 func (s *Database) ListProducts(ctx context.Context, req *request.ListProductsRequest) (*response.ListProductsResponse, error) {
