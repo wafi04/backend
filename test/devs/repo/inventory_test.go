@@ -9,8 +9,8 @@ import (
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/jmoiron/sqlx"
 	"github.com/stretchr/testify/assert"
-	"github.com/wafi04/backend/internal/handler/dto/request"
-	inventoryrepo "github.com/wafi04/backend/internal/repository/inventory"
+	request "github.com/wafi04/backend/pkg/types/req"
+	"github.com/wafi04/backend/services/inventory"
 )
 
 func TestCreateInventory(t *testing.T) {
@@ -22,7 +22,7 @@ func TestCreateInventory(t *testing.T) {
 
 	sqlxDB := sqlx.NewDb(db, "sqlmock")
 
-	repo := &inventoryrepo.Database{
+	repo := &inventory.Database{
 		DB: sqlxDB,
 	}
 
@@ -123,7 +123,7 @@ func TestUpdateInventory(t *testing.T) {
 	defer db.Close()
 
 	sqlxDB := sqlx.NewDb(db, "sqlmock")
-	repo := &inventoryrepo.Database{DB: sqlxDB}
+	repo := &inventory.Database{DB: sqlxDB}
 
 	tests := []struct {
 		name          string

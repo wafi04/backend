@@ -25,7 +25,6 @@ func LoadConfig(env string) error {
 	return nil
 }
 
-// LoadEnv gets an environment variable with validation
 func LoadEnv(key string) string {
 	value := os.Getenv(key)
 	if value == "" {

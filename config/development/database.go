@@ -14,18 +14,8 @@ type Database struct {
 	DB *sqlx.DB
 }
 
-var (
-	database = "backend"
-	host     = "192.168.100.9"
-	port     = "5432"
-	username = "postgres"
-	password = "postgres"
-	schema   = "public"
-)
-
 func NewDB() (*Database, error) {
-	connStr := fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=disable&search_path=%s",
-		username, password, host, port, database, schema)
+	connStr := LoadEnv("DATABASE_URL")
 
 	db, err := sqlx.Open("pgx", connStr)
 	if err != nil {

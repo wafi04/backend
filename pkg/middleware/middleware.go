@@ -9,7 +9,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt"
-	"github.com/wafi04/backend/internal/handler/dto/types"
+	"github.com/wafi04/backend/pkg/types"
 )
 
 var jwtSecretKey = []byte("jsjxakabxjaigisyqyg189")
@@ -84,6 +84,7 @@ func GetUserFromGinContext(c *gin.Context) (*types.UserInfo, error) {
 func AuthMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		authHeader := c.GetHeader("Authorization")
+		fmt.Println("Authorization Header:", authHeader) // Debugging
 		if authHeader != "" {
 			parts := strings.Split(authHeader, "Bearer ")
 			if len(parts) == 2 {
@@ -113,7 +114,6 @@ func AuthMiddleware() gin.HandlerFunc {
 			return
 		}
 
-		// Validasi refresh token
 		claims, err := ValidateToken(refreshToken)
 		if err != nil {
 			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{
@@ -146,27 +146,27 @@ func AuthMiddleware() gin.HandlerFunc {
 }
 
 func SetRefreshTokenCookie(c *gin.Context, token string) {
-    c.SetCookie(
-        "refresh_token",
-        token,
-        int(168*3600),    
-        "/",               
-        "192.168.100.6",  
-        false,             
-        true,              
-    )
+	c.SetCookie(
+		"refresh_token",
+		token,
+		int(168*3600),
+		"/",
+		"192.168.100.6",
+		false,
+		true,
+	)
 }
 
 func SetSessionCookie(c *gin.Context, sessionID string) {
-    c.SetCookie(
-        "session",
-        sessionID,
-        int(168*3600),     
-        "/",              
-        "192.168.100.6",   
-        false,             
-        true,              
-    )
+	c.SetCookie(
+		"session",
+		sessionID,
+		int(168*3600),
+		"/",
+		"192.168.100.6",
+		false,
+		true,
+	)
 }
 
 func ClearTokens(c *gin.Context) {
